@@ -1,33 +1,202 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+body{
+  max-width:99%;
+  margin:auto;
+}
 .App {
+
+}
+.nav{
+  display:grid;
+  grid-template-columns: 120px 1fr 120px;
+  align-items:center;
+}
+.nav .left{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+.nav .left h4{
+  
+}
+.nav .left h4::first-letter{
+  color:orange;
+}
+.nav .left .App-logo{
+  width:60px;
+}
+.nav .center ul{
+  list-style-type: none;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav .center ul li{
+  min-width: 5em;
+  margin: 0 0.5em;
+  display: inline-block;
 }
+.App-link{
+  text-decoration:none;
+  color:black;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.ship-pay{
+  display:flex;flex-direction:row;
+  justify-content:space-between;
 
+}
+h2{
+  line-height:40px;
+  font-size:20px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.ship-pay h2{
+}
+.delivery-truck,.delivery-cart{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  cursor: pointer;
+}
+.delivery-truck{
+  background:rgb(6, 255, 81);
+}
+.delivery-cart{
+  position:relative;
+  border:2px solid rgb(6, 255, 81);
+}
+.delivery-cart::after{
+  content:"";
+  display: inline-block;
+  position: absolute;
+  height:3px;
+  width:68px;
+  left: 54px;
+  border-bottom:2px dashed rgb(6, 255, 81);
+}
+.ship-delivery{
+  width:180px;
+  display:flex;flex-direction:row;
+  justify-content:space-between;
+}
+.ship-delivery img{
+  width:21px;
+}
+hr{
+  border-top: 1px solid rgb(233, 233, 233);
+  margin:10px auto;
+}
+.left-right-section{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+}
+.select-btns{
+  width:40%;
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+.select-btns button{
+  height:50px;
+  width:120px;
+  border:none;
+  border-radius:50px;
+  cursor: pointer;
+}
+.select-btns button:nth-child(1){
+  color: white;
+  background: rgb(68, 170, 99);
+}
+.select-btns button:nth-child(2){
+  color:black;
+  border:2px solid rgb(172, 172, 172);
+  background:white;
+}
+.right-section{
+
+}
+.right-section h2{
+  line-height:50px;
+}
+.right-div-section{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+}
+.payment-option{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+}
+.payment-option div{
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  padding:10px;
+  border:2px solid rgb(233, 233, 233);
+  border-radius:30px;
+}
+.nav .right{
+  display:flex;
+  justify-content:space-between;
+  margin-right:10px;
+}
+.nav .right img{
+  width:21px;
+  cursor:pointer;
+}
+.payment-option img{
+  height:25px;
+  width:50px;
+}
+.payment-method{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap:10px;
+}
+.payment-method img{
+  width:60px;
+}
+.payment-method div{
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  height:50px;
+  padding:10px;
+  border-radius:20px;
+  border:2px solid rgb(233, 233, 233);
+}
+.input-forms{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap:10px;
+}
+.input-forms input{
+  border-radius:20px;
+  border:2px solid rgb(233, 233, 233);
+}
+.App-header {
+  /* min-height: 100vh; */
+  /* display: flex;
+  flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* font-size: calc(10px + 2vmin); */
+  /* color: white; */
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
