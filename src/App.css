@@ -144,9 +144,9 @@ hr{
   display:flex;
   align-items: center;
   justify-content:center;
-  padding:10px;
-  border:2px solid rgb(233, 233, 233);
-  border-radius:30px;
+  padding:5px;
+  border:2px solid rgba(187, 187, 187, 0.432);
+  border-radius:20px;
   cursor:pointer;
 }
 .nav .right{
@@ -159,7 +159,7 @@ hr{
   cursor:pointer;
 }
 .payment-option img{
-  height:25px;
+  height:28px;
   width:50px;
   cursor:pointer;
 }
@@ -178,7 +178,7 @@ hr{
   height:50px;
   padding:10px;
   border-radius:20px;
-  border:2px solid rgb(233, 233, 233);
+  border:2px solid rgba(187, 187, 187, 0.432);
   cursor:pointer;
 }
 .input-forms{
