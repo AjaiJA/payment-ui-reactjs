@@ -30,6 +30,7 @@ function App() {
         e.preventDefault()
         togglePopup()
         setIsLoggedIn(true)
+        alert("Logged IN Successfully")
     }
     let logout=(e)=>{
         setUserData({
@@ -38,9 +39,11 @@ function App() {
             mobile:""
         })
         setIsLoggedIn(false)
+        alert("Logged Out Successfully")
     }
     let openPaymentModal=(amt)=>{
         if(!isLoggedIn){
+            alert("Please Login Before continuing the Payment")
             togglePopup()
             return true
         }

@@ -19,3 +19,4 @@ The page will reload when you make changes.
 ### Note:
  1. Login functionality in the design is working. Let's login by clicking the Login button
  2. Also RazorPay payment is completed and working. You are asked to login before clicking the `PROCEED TO PAYMENT` button in the bottom right of the design. Razorpay is in the test mode. 
+ 
