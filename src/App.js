@@ -8,12 +8,14 @@ import Cart from './components/Cart';
 import LoginPopup from './components/LoginPopup';
 
 function App() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
     const [userData,setUserData]=useState({
         username:"",
         email:"",
         mobile:""
     })
+    const [isLoggedIn, setIsLoggedIn]=useState(false)
+
     useEffect(()=>{
         const script = document.createElement("script");
         script.src = "https://checkout.razorpay.com/v1/checkout.js";
@@ -27,8 +29,21 @@ function App() {
     let login=(e)=>{
         e.preventDefault()
         togglePopup()
+        setIsLoggedIn(true)
+    }
+    let logout=(e)=>{
+        setUserData({
+            username:"",
+            email:"",
+            mobile:""
+        })
+        setIsLoggedIn(false)
     }
     let openPaymentModal=(amt)=>{
+        if(!isLoggedIn){
+            togglePopup()
+            return true
+        }
         var amount = amt * 100;
         var options = {
             "key": "rzp_test_OVyyUIZk4uYtWE",
@@ -77,7 +92,7 @@ function App() {
             </div>
             <br/>
             <section className="left-right-section">
-                <LeftForm togglePopup={togglePopup} />    
+                <LeftForm logout={logout} togglePopup={togglePopup} isLoggedIn={isLoggedIn} />    
                 <div className="right-div-section">
                     <Right />                
                     <Cart />

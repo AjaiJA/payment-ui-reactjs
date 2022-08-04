@@ -5,8 +5,17 @@ export default function LeftForm(props) {
     return (
         <div>
             <div className="select-btns">
-                <button type="button" onClick={props.togglePopup}>LOG IN</button>
-                <button>SIGN UP</button>
+                {props.isLoggedIn ?
+                    <>
+                        <button type="button" onClick={props.logout}>LOG OUT</button>
+                    </>
+                    :
+                    <>
+                        <button type="button" onClick={props.togglePopup}>LOG IN</button>
+                        <button>SIGN UP</button>
+                    </>
+                }
+                
             </div>
             <form>
                 <h2 style={{lineHeight:"70px"}}>Shipping Information</h2>
