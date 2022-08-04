@@ -1,10 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
+import LoginPopup from './LoginPopup'
 
-export default function LeftForm() {
+export default function LeftForm(props) {
     return (
         <div>
             <div className="select-btns">
-                <button>LOG IN</button>
+                <button type="button" onClick={props.togglePopup}>LOG IN</button>
                 <button>SIGN UP</button>
             </div>
             <form>

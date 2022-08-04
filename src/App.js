@@ -5,8 +5,10 @@ import TopNav from './components/TopNav';
 import DeliveryTruck from './assets/payment-logo/delivery-truck.svg'
 import cart from './assets/payment-logo/cart.svg'
 import Cart from './components/Cart';
+import LoginPopup from './components/LoginPopup';
 
 function App() {
+    const [isOpen, setIsOpen] = useState(false);
     const [userData,setUserData]=useState({
         username:"",
         email:"",
@@ -18,13 +20,21 @@ function App() {
         script.async = true;
         document.body.appendChild(script);
     },[])
+ 
+    const togglePopup = () => {
+        setIsOpen(!isOpen)
+    }
+    let login=(e)=>{
+        e.preventDefault()
+        togglePopup()
+    }
     let openPaymentModal=(amt)=>{
         var amount = amt * 100;
         var options = {
             "key": "rzp_test_OVyyUIZk4uYtWE",
             "amount": amount,
             "name": userData.username,
-			"image": "https://media.istockphoto.com/photos/appetizing-roasted-fillet-of-pork-picture-id467852533?s=612x612",
+			"image": "https://png.pngtree.com/png-clipart/20210530/original/pngtree-cash-on-delivery-truck-icon-png-image_6344227.jpg",
             "description": "Let's Purchase the Items through Payment",
             'order_id':"",
             "handler": function(response) {
@@ -67,7 +77,7 @@ function App() {
             </div>
             <br/>
             <section className="left-right-section">
-                <LeftForm />    
+                <LeftForm togglePopup={togglePopup} />    
                 <div className="right-div-section">
                     <Right />                
                     <Cart />
@@ -82,6 +92,7 @@ function App() {
                     <button type="button" onClick={()=>openPaymentModal(400)}>PROCEED TO PAYMENT</button>
                 </div>
             </section>
+            {isOpen && <LoginPopup login={login} userData={userData} setUserData={setUserData} isOpen={isOpen} setIsOpen={setIsOpen} closePopup={togglePopup} />}
         </div>
     );
 }
