@@ -1,17 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap');
 *{
   padding:0;
   margin:0;
   box-sizing: border-box;
 }
 :root{
-  --bg-color1:#59CE8F;
+  --bg-color1:#14C38E;
 }
 body{
-  max-width:99%;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  max-width:97%;
   margin:auto;
 }
 .App {
-
 }
 .nav{
   display:grid;
@@ -22,9 +23,6 @@ body{
   display:flex;
   flex-direction: row;
   align-items: center;
-}
-.nav .left h4{
-  
 }
 .nav .left h4::first-letter{
   color:orange;
@@ -44,7 +42,7 @@ body{
 .App-link{
   text-decoration:none;
   color:black;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 .ship-pay{
   display:flex;flex-direction:row;
@@ -53,11 +51,8 @@ body{
 }
 h2{
   color:rgb(122, 122, 122);
-  line-height:40px;
-  font-size:20px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.ship-pay h2{
+  font-size:19px;
+  /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 .delivery-truck,.delivery-cart{
   display:flex;
@@ -109,7 +104,7 @@ hr{
 }
 .select-btns button{
   height:50px;
-  width:120px;
+  width:150px;
   border:none;
   border-radius:50px;
   cursor: pointer;
@@ -117,17 +112,15 @@ hr{
 .select-btns button:nth-child(1){
   color: white;
   background: var(--bg-color1);
+  margin-right:30px;
 }
 .select-btns button:nth-child(2){
   color:black;
   border:2px solid rgb(172, 172, 172);
   background:white;
 }
-.right-section{
-
-}
 .right-section h2{
-  line-height:50px;
+  /* line-height:50px; */
 }
 .right-div-section{
   display:grid;
@@ -199,7 +192,7 @@ hr{
 }
 .input-forms input::placeholder{
   font-size:16px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
 }
 .cart-items{
   display:flex;
@@ -222,16 +215,13 @@ hr{
   color:rgb(63, 63, 63);
   font-size:18px;
   line-height:30px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
 }
 .cart-items .item h3{
   color:rgb(83, 83, 83);
 }
 .cart-items .item h5{
   color:rgb(163, 163, 163);
-}
-.cart-items .item div{
-
 }
 .total-cost-btn{
   display:flex;
@@ -262,19 +252,14 @@ hr{
 }
 .delivery-discount-div p{
   text-align:left;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
   color:rgb(53, 53, 53);
   line-height:23px;
 }
 .purchase-option{
   display:grid;
-  grid-template-columns: 1fr 40%;
-}
-.purchase-option div{
-}
-.purchase-option div:nth-child(2){
-  /* margin-left: auto;  */
-  /* margin-right: 0; */
+  grid-template-columns: 1fr 35%;
+  margin:20px auto;
 }
 .purchase-option-btns{
   display:flex;
@@ -284,23 +269,54 @@ hr{
 }
 .purchase-option button{
   height:50px;
-  width:40%;
+  width:200px;
   border:none;
   border-radius:50px;
   cursor: pointer;
+  letter-spacing: 1px;
 }
 .purchase-option button:nth-child(1){
   background:white;
-  border:2px solid grey;
+  border:2px solid rgb(148, 148, 148);
 }
 .purchase-option button:nth-child(2){
+  color:white;
   background-color:var(--bg-color1);
 }
-.App-header {
-  /* min-height: 100vh; */
-  /* font-size: calc(10px + 2vmin); */
-  /* color: white; */
+.back-btn{
+  display:flex;
+  align-items:center;
+  cursor:pointer;
+  transition:all 0.2 ease-in-out;
 }
+.back-btn:hover{
+  color:grey;
+}
+
+@media only screen and (max-width: 1188px) {
+  .right-div-section{
+    grid-template-columns: 1fr;
+  }
+  .purchase-option{
+    grid-template-columns: 1fr 50%;
+  }
+}
+
+@media only screen and (max-width: 858px) {
+  .purchase-option{
+    grid-template-columns: 1fr 60%;
+  }
+}
+
+@media only screen and (max-width: 764px) {
+  .purchase-option{
+    grid-template-columns: 1fr 1fr;
+  }
+  .left-right-section{
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

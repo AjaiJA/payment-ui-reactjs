@@ -14,7 +14,7 @@ export default function Right() {
     return (
         <div className="right-section">
             <h2>Payment Method</h2>
-            <div className="payment-option">
+            <div className="payment-option" style={{margin:"25px auto"}}>
                 <div><img src={paypal} alt="Paypal" /></div>
                 <div><img src={visa} alt="Visa" /></div>
                 <div><img src={mastercard} alt="MasterCard" /></div>
@@ -23,7 +23,7 @@ export default function Right() {
                 <div><img src={deal} alt="Deal" /></div>
             </div>
             <h2>Delivery Method</h2>
-            <div className="payment-method">
+            <div className="payment-method" style={{margin:"15px auto"}}>
                 <div><img src={inpost} alt="Paypal" /><span>$20.00</span></div>
                 <div><img src={dpd} alt="Visa" /><span>$12.00</span></div>
                 <div><img src={dhl} alt="MasterCard" /><span>$15.00</span></div>

@@ -8,7 +8,7 @@ export default function LeftForm() {
                 <button>SIGN UP</button>
             </div>
             <form>
-                <h2>Shipping Information</h2>
+                <h2 style={{lineHeight:"70px"}}>Shipping Information</h2>
                 <div className="input-forms">
                     <input type="text" placeholder="Email" />
                     <input type="text" placeholder="Address" />

@@ -1,4 +1,4 @@
-import './App.css';
+import {useEffect,useState,React} from 'react';
 import LeftForm from './components/LeftForm';
 import Right from './components/Right';
 import TopNav from './components/TopNav';
@@ -7,12 +7,57 @@ import cart from './assets/payment-logo/cart.svg'
 import Cart from './components/Cart';
 
 function App() {
+    const [userData,setUserData]=useState({
+        username:"",
+        email:"",
+        mobile:""
+    })
+    useEffect(()=>{
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        script.async = true;
+        document.body.appendChild(script);
+    },[])
+    let openPaymentModal=(amt)=>{
+        var amount = amt * 100;
+        var options = {
+            "key": "rzp_test_OVyyUIZk4uYtWE",
+            "amount": amount,
+            "name": userData.username,
+			"image": "https://media.istockphoto.com/photos/appetizing-roasted-fillet-of-pork-picture-id467852533?s=612x612",
+            "description": "Let's Purchase the Items through Payment",
+            'order_id':"",
+            "handler": function(response) {
+                console.log(response);
+                var values ={
+                    razorpay_signature : response.razorpay_signature,
+                    razorpay_order_id : response.razorpay_order_id,
+                    transactionid : response.razorpay_payment_id,
+                    transactionamount : amount,
+                }
+                alert("Payment Done Successfully")
+            },
+            "prefill":{
+                "name":userData.username,
+                "email":userData.email,
+                "contact":userData.mobile,
+            },
+            "notes": {
+                "address": "00-000/0, Somewhere, Anywhere"
+            },
+            "theme": {
+                "color": "#14C38E"
+            }
+        };
+        var rzp1 = new window.Razorpay(options);
+        rzp1.open();	
+    }
     return (
         <div className="App">
             <header className="App-header">
                 <TopNav />
             </header>
-            <hr/>
+            <hr/><br/>
             <div className="ship-pay">
                 <h2>Shipping and Payment</h2>
                 <div className="ship-delivery">
@@ -29,12 +74,12 @@ function App() {
                 </div>            
             </section><br/>
             <section class="purchase-option">
-                <div>
-                    <i class="fa-solid fa-arrow-left-long"></i> Back
+                <div className="back-btn">
+                    <i class="fa-solid fa-arrow-left-long"></i> <span>Back</span>
                 </div>
                 <div className="purchase-option-btns">
                     <button type="button">CONTINUE SHOPPING</button>
-                    <button type="button">PROCEED TO PAYMENT</button>
+                    <button type="button" onClick={()=>openPaymentModal(400)}>PROCEED TO PAYMENT</button>
                 </div>
             </section>
         </div>
